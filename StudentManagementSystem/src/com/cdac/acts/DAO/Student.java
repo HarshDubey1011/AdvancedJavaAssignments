@@ -16,11 +16,12 @@ public class Student {
 
 	public Student(String name, String email, Integer age, String city) {
 		super();
-		Name = name;
+		this.Name = name;
 		this.email = email;
 		this.age = age;
 		this.city = city;
 	}
+
 
 
 	public String getName() {
@@ -76,12 +77,32 @@ public class Student {
 		return stude;
 	}
 
+	public static Integer updateStudent(Scanner sc) {
+		System.out.println("Enter the ID of the student you want to update: ");
+		Integer id = sc.nextInt();
+		return id;
+	}
+	public static Integer deleteByID(Scanner sc) {
+		System.out.println("Enter the ID you wanna delete: ");
+		Integer id = sc.nextInt();
+		
+		return  id;
+	}
+	
+	public static Integer getSingleStudent(Scanner sc) {
+		System.out.println("Enter the ID to get a record of the Student");
+		Integer id = sc.nextInt();
+		
+		return id;
+	}
 
 	@Override
 	public String toString() {
 		return "Student [Name=" + Name + ", email=" + email + ", age=" + age + ", city=" + city + "]";
 	}
-	
+
+
+
 	
 	
 }
