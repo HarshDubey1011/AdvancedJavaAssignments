@@ -100,9 +100,5 @@ public class Student {
 	public String toString() {
 		return "Student [Names=" + Name + ", email=" + email + ", age=" + age + ", city=" + city + "]";
 	}
-
-
-
-	
 	
 }
