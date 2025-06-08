@@ -72,8 +72,8 @@ public class Student {
 		System.out.println("Enter the City: ");
 		String city = sc.next();
 		
-		Student stud = new Student(name,email,age,city);
-		return stud;
+		Student stude = new Student(name,email,age,city);
+		return stude;
 	}
 
 
