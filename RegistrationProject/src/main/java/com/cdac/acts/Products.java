@@ -2,11 +2,7 @@ package com.cdac.acts;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,19 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cdac.acts.DAO.CategoryDAO;
+import com.cdac.acts.DAO.ProductDAO;
 
 /**
- * Servlet implementation class Category
+ * Servlet implementation class Products
  */
-@WebServlet("/Category")
-public class Category extends HttpServlet {
+@WebServlet("/Products")
+public class Products extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Category() {
+    public Products() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,8 +33,7 @@ public class Category extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-		CategoryDAO cad = new CategoryDAO();
-		
+		ProductDAO pd = new ProductDAO();
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
 		out.println("<head>");
@@ -56,27 +51,30 @@ public class Category extends HttpServlet {
 		out.println("<tr>");
 		out.println("<th>Name</th>");
 		out.println("<th>Description</th>");
+		out.println("<th>Price</th>");
 		out.println("<th>Image</th>");
 		out.println("</tr>");
-			ResultSet rs = cad.isValid();
+		
+		
+			String tempId = request.getParameter("categoryId");
+			int categoryId = Integer.parseInt(tempId);
+			
+			ResultSet rs = pd.validProduct(categoryId);
 			while(rs.next()) {
 				out.println("<tr>");
-				out.println("<td><a href='Products?categoryId=" + rs.getInt("categoryId") + "'>" + rs.getString("categoryName") + "</a></td>");
-				out.println("<td>"+rs.getString("categoryDescription")+ "</td>");
-				out.println("<td><img src='Images/" + rs.getString("categoryImageUrl") + "' height='60px' width='60px' /></td>");
+				out.println("<td>" + rs.getString("productName") + "</td>");
+				out.println("<td>" + rs.getString("productDescription")+"</td>");
+				out.println("<td>"+rs.getString("productPrice") + "</td>");
+				out.println("<td><img src='Images/" + rs.getString("ProductImageUrl") + "' height='100px' width='100px'/></td>");
 				out.println("</tr>");
 			}
-			
 			out.println("</table>");
 			out.println("</body>");
 			out.println("</html>");
-		}catch(ClassNotFoundException e) {
-			System.out.println(e.getMessage()+"Jar or Bin file not found!");
-			e.printStackTrace();
-		}catch(SQLException e) {
+ 		}catch(Exception e) {
 			System.out.println(e.getMessage());
-			e.printStackTrace();
 		}
 	}
+
 
 }
