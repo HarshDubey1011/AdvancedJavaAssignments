@@ -11,6 +11,8 @@ GitHub Repo: [HarshDubey1011/AdvancedJavaAssignments](https://github.com/HarshDu
 The repository includes assignments and examples related to:
 
 - JDBC (Java Database Connectivity)
+- POJO and DAO
+- Dynamic Web Project
 - Servlets & JSP
 
 ---
