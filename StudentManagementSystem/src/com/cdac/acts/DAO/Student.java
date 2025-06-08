@@ -1,7 +1,8 @@
 package com.cdac.acts.DAO;
 
+import java.util.Scanner;
+
 public class Student {
-	Integer id;
 	String Name;
 	String email;
 	Integer age;
@@ -13,23 +14,12 @@ public class Student {
 	}
 
 
-	public Student(Integer id, String name, String email, Integer age, String city) {
+	public Student(String name, String email, Integer age, String city) {
 		super();
-		this.id = id;
 		Name = name;
 		this.email = email;
 		this.age = age;
 		this.city = city;
-	}
-
-
-	public Integer getId() {
-		return id;
-	}
-
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 
@@ -71,11 +61,25 @@ public class Student {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
+	public static Student addStudent(Scanner sc) {
+		System.out.println("Enter the Name: ");
+		String name = sc.next();
+		System.out.println("Enter the Email: ");
+		String email = sc.next();
+		System.out.println("Enter the Age: ");
+		Integer age = sc.nextInt();
+		System.out.println("Enter the City: ");
+		String city = sc.next();
+		
+		Student stud = new Student(name,email,age,city);
+		return stud;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", Name=" + Name + ", email=" + email + ", age=" + age + ", city=" + city + "]";
+		return "Student [Name=" + Name + ", email=" + email + ", age=" + age + ", city=" + city + "]";
 	}
 	
 	
