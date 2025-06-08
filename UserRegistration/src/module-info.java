@@ -4,6 +4,6 @@
 /**
  * 
  */
-module Assignment2 {
+module UserRegistration {
 	requires java.sql;
 }

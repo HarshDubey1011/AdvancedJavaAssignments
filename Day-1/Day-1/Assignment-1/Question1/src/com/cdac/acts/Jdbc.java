@@ -11,9 +11,9 @@ public class Jdbc {
      public static void main(String[] args) {
          try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                String url = "jdbc:mysql://localhost:3306/user";
+                String url = "jdbc:mysql://localhost:3306/demodb";
                 String user = "root";
-                String pass = "root";
+                String pass = "harsh";
                 Connection con = DriverManager.getConnection(url,user,pass);
                 System.out.println("Connection established successfully!");
                 Statement st = con.createStatement();

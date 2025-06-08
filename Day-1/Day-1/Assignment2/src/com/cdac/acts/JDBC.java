@@ -20,7 +20,7 @@ public class JDBC {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/school";
             String user = "root";
-            String pass = "root";
+            String pass = "harsh";
             Connection con = DriverManager.getConnection(url,user,pass);
             System.out.println("Connection established successfully!");
             
