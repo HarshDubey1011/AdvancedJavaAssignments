@@ -24,6 +24,7 @@ public class CategoryDAO {
 		System.out.println(pass);
 		System.out.println(query);
 		con = DriverManager.getConnection(dbUrl,username,pass);
+		System.out.println("Connection Established");
 		psStmt = con.prepareStatement(query);
 	
 	}
