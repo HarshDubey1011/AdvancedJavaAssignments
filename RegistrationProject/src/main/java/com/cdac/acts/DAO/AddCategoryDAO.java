@@ -31,6 +31,7 @@ public class AddCategoryDAO {
 		pStmt.setString(2, categoryDescription);
 		pStmt.setString(3, categoryImageUrl);
 		pStmt.executeUpdate();
+		return true;
 	}
 }
 
